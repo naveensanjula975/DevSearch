@@ -1,7 +1,8 @@
-{% {% extends 'main.html' %}
+{% extends 'main.html' %}
 
-{% {% block contend %}
-
-<h1>Single Project Template</h1>
+{% block contend %}
+<h1>{{project.title}}</h1>
+<br>
+<p>{{ project.description }}</p>
 
 {% endblock %}
