@@ -6,14 +6,23 @@
 
 {% if number > 10 %}
 <p>Number is greater than 10</p>
+
 {% elif number == 10 %}
 <p>Number is exactly 10</p>
+
 {% else %}
 <p>Number is less than 10</p>
 {% endif %}
 
+<hr>
 
-<h1>Projects Template</h1>
-<p>hi bro</p>
+<h1>Projects</h1>
+
+<ul>
+    {% for project in projects %}
+    <li>Title : {{ project.title }}</li>
+    {% endfor %}
+</ul>
+
 
 {% endblock content %}
