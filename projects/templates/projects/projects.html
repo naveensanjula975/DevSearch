@@ -40,12 +40,14 @@
     <section class="projectsList">
       <div class="container">
         <div class="grid grid--three">
+            
+          {% for project in projects %}  
           <div class="column">
             <div class="card project">
               <a href="single-project.html" class="project">
                 <img class="project__thumbnail" src="images/project-a.png" alt="project thumbnail" />
                 <div class="card__body">
-                  <h3 class="project__title">Yoga Studio Landing Page Website and Design</h3>
+                  <h3 class="project__title">{{project.title}}</h3>
                   <p><a class="project__author" href="profile.html">By Dennis Ivanov</a></p>
                   <p class="project--rating">
                     <span style="font-weight: bold;">98%</span> Postitive
@@ -66,6 +68,8 @@
               </a>
             </div>
           </div>
+          {% endfor %}
+
         </div>
       </div>
     </section>
