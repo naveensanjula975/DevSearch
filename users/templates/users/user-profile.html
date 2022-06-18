@@ -91,7 +91,7 @@
                       <p><a class="project__author" href="profile.html">By {{project.owner.name}}</a></p>
                       <p class="project--rating">
                         <span style="font-weight: bold;">{{project.vote_ratio}}%</span> Postitive
-                        Feedback (62 Votes)
+                        Feedback ({{project.vote_total}} Vote{{project.vote_total|pluralize:"s"}})
                       </p>
                       <div class="project__tags">
                         <span class="tag tag--pill tag--main">
