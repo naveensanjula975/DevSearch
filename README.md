@@ -20,3 +20,15 @@ MIDDLEWARE = [
     # ...
 ]
 ```
+
+
+<li>Build a Django website
+<li>Hosting a website on a live server
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
+<li>
