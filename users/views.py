@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth import User
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
 from .models import Profile
 
 
@@ -24,6 +24,11 @@ def loginPage(request):
             print('Username OR Password is incorrect')
 
     return render(request, 'users/login_register.html')
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 
 def profiles(request):
