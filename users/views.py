@@ -12,6 +12,11 @@ def loginPage(request):
 
         try:
             user = User.objects.get(username=username)
+        except:
+            print('Username does not exist')
+
+
+            
     return render(request, 'users/login_register.html')
 
 
