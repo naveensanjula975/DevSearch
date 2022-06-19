@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 from .models import Profile
 
 
 def loginPage(request):
 
     if request.method == 'POST':
-        print(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
     return render(request, 'users/login_register.html')
 
 
