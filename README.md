@@ -30,3 +30,22 @@ MIDDLEWARE = [
 <li>
 <li>
 <li>
+
+
+
+
+Displaying messages¶
+
+
+get_messages(request)[source](https://docs.djangoproject.com/en/4.0/_modules/django/contrib/messages/api/#get_messages)¶
+In your template, use something like:
+
+```
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+```
