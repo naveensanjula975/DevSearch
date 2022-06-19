@@ -34,12 +34,12 @@ MIDDLEWARE = [
 
 
 
-Displaying messages¶
+## Displaying messages¶
 
 
-get_messages(request)[source](https://docs.djangoproject.com/en/4.0/_modules/django/contrib/messages/api/#get_messages)¶
-In your template, use something like:
-
+get_messages [[request]](https://docs.djangoproject.com/en/4.0/_modules/django/contrib/messages/api/#get_messages)
+    
+    
 ```
 {% if messages %}
 <ul class="messages">
