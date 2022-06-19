@@ -41,7 +41,7 @@ class Skill(models.Model):
     def __str__(self):
         return str(self.name)
 
-@receiver(post_save, sender=Profile)
+# @receiver(post_save, sender=Profile)
 def profileUpdated(sender, instance, created, **kwargs):
     print('Profile Saved!')
     print('Instance:', instance)
@@ -51,6 +51,6 @@ def profileUpdated(sender, instance, created, **kwargs):
 def deleteUser(sender, instance, **kwargs):
     print('Deleting user...')
 
-#post_save.connect(profileUpdated, sender=Profile)
-#post_delete.connect(deleteUser, sender=Profile)
+post_save.connect(profileUpdated, sender=Profile)
+post_delete.connect(deleteUser, sender=Profile)
 
