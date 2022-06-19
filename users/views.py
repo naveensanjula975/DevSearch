@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
-def loginPage(request):
+def loginUser(request):
 
     if request.method == 'POST':
         username = request.POST['username']
