@@ -15,8 +15,8 @@ def loginPage(request):
         except:
             print('Username does not exist')
 
+        user = authenticate(request, username=username, password=password)
 
-            
     return render(request, 'users/login_register.html')
 
 
