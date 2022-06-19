@@ -41,7 +41,7 @@ class Skill(models.Model):
     def __str__(self):
         return str(self.name)
 
-
+@receiver(post_save, sender=Profile)
 def profileUpdated(sender, instance, created, **kwargs):
     print('Profile Saved!')
     print('Instance:', instance)
