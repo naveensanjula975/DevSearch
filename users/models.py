@@ -5,7 +5,7 @@ import uuid
 
 # Create your models here.
 
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 
 
 class Profile(models.Model):
@@ -45,6 +45,9 @@ def profileUpdated(sender, instance, created, **kwargs):
     print('Profile Saved!')
     print('Instance:', instance)
     print('CREATED:', created)
+
+
+def deleteUser(sender, instance, **kwargs)
 
 post_save.connect(profileUpdated, sender=Profile)
 
