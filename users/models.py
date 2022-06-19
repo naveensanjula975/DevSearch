@@ -43,7 +43,11 @@ class Skill(models.Model):
 
 # @receiver(post_save, sender=Profile)
 def createProfile(sender, instance, created, **kwargs):
-    
+    if created:
+        user = instance
+        profile = Profile.objects.create(
+            user=user
+        )
 
 
 def deleteUser(sender, instance, **kwargs):
