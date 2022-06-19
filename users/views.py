@@ -20,6 +20,8 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('profiles')
+        else:
+            print('Username OR Password is incorrect')
 
     return render(request, 'users/login_register.html')
 
