@@ -2,6 +2,10 @@
 VirtualOfficeRoom
 
 
+[Django documentation¶](https://docs.djangoproject.com/en/4.0/)
+
+
+
 [WhiteNoise](http://whitenoise.evans.io/en/stable/)
 Installation
 
