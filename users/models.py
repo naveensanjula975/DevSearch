@@ -6,6 +6,7 @@ import uuid
 # Create your models here.
 
 from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 
 
 class Profile(models.Model):
@@ -50,6 +51,6 @@ def profileUpdated(sender, instance, created, **kwargs):
 def deleteUser(sender, instance, **kwargs):
     print('Deleting user...')
 
-post_save.connect(profileUpdated, sender=Profile)
-post_delete.connect(deleteUser, sender=Profile)
+#post_save.connect(profileUpdated, sender=Profile)
+#post_delete.connect(deleteUser, sender=Profile)
 
