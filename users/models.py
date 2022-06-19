@@ -44,3 +44,5 @@ class Skill(models.Model):
 def profileUpdated(sender, instance, created, **kwargs):
     print('Profile Saved!')
 
+post_save.connect(profileUpdated, sender=Profile)
+
