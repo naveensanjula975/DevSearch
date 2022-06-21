@@ -8,7 +8,9 @@
         <div class="column column--1of3">
           <div class="card text-center">
             <div class="card__body dev">
-              <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i> Edit</a>
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i>
+                Edit</a>
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i> Edit</a>
               <img class="avatar avatar--xl dev__avatar" src="{{profile.profile_image.url}}" />
               <h2 class="dev__name">{{profile.name}}</h2>
               <p class="dev__title">{{profile.short_into}}</p>
@@ -43,7 +45,7 @@
                 {% endif %}
               </ul>
 
-              {% comment %} <a href="#" class="btn btn--sub btn--lg">Send Message </a> {% endcomment %}
+              <a href="#" class="btn btn--sub btn--lg">Send Message </a>
             </div>
           </div>
         </div>
@@ -90,7 +92,7 @@
               </td>
               <td class="settings__tableInfo">
                 <a href="{% url 'project' project.id %}">{{project.title}}</a>
-                <p>{{project.description|slice="150"}}</p>
+                <p>{{project.description|slice:"150"}}</p>
               </td>
               <td class="settings__tableActions">
                 <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i> Edit</a>
@@ -106,4 +108,4 @@
     </div>
   </main>
   
-  {% endblock content %}
+{% endblock content %}
