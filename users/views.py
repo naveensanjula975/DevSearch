@@ -42,8 +42,9 @@ def logoutUser(request):
 
 def registerUser(request):
     page = 'register'
-    context = {'page':page}
-    return render(request, 'user/login_register.html', context)
+    form = UserCreationForm()
+    context = {'page':page, 'form':form}
+    return render(request, 'users/login_register.html', context)
 
 def profiles(request):
     profiles = Profile.objects.all()
