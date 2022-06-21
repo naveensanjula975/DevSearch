@@ -1,11 +1,5 @@
 {% extends 'main.html' %} {% load static %} {% block content %} {% if page == 'register' %}
 
-<h1>register User</h1>
-
-<form method="POST" action="{% url 'register' %}">
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="Register User" />
-</form>
 
 <div class="auth">
     <div class="card">
@@ -13,23 +7,27 @@
         <a href="/">
           <img src="{% static 'images/icon.svg' %}" alt="icon" />
         </a>
-        <h3>Account SignUp</h3>
+        <h3>Register an Account</h3>
         <p>Create a new developer account</p>
       </div>
 
-      <form action="#" class="form auth__form">
+      <form method="POST" action="{% url 'register' %}" class="form auth__form">
+        {% csrf_token %}
+        
+        {% for field in form %}
         <!-- Input:Text -->
         <div class="form__field">
           <label for="formInput#text">Full Name: </label>
           <input
-            class="input input--text"
-            id="formInput#text"
-            type="text"
-            name="text"
-            placeholder="e.g. Dennis Ivanov"
+          class="input input--text"
+          id="formInput#text"
+          type="text"
+          name="text"
+          placeholder="e.g. Dennis Ivanov"
           />
         </div>
-
+        {% endfor %}
+        
 
         <div class="auth__actions">
           <input class="btn btn--sub btn--lg" type="submit" value="Sign  In" />
