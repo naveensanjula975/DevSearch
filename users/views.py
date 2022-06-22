@@ -137,3 +137,11 @@ def updateSkill(request, pk):
     context = {'form': form}
     return render(request, 'users/skill_form.html', context)
 
+
+
+def deleteSkill(request, pk):
+    profile = request.user.profile
+    skill = profile.skill_set.get(id=pk)
+    
+    context = {'object': skill}
+    return render(request, 'delete_template.html', context)
