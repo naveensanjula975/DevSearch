@@ -1,23 +1,6 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Create Skill</h1>
-
-<form method="POST" action="">
-    {% csrf_token %}
-
-    {% for field in form %}
-
-    <div class="form__field">
-        <label for="formInput#text"> {{field.label}}</label>
-        {{field}}
-    </div>
-    
-    {% endfor %}
-
-    <input type="submit" value="Submit" />
-</form>
-
 
 <!-- Main Section -->
 <main class="formPage my-xl">
@@ -26,8 +9,17 @@
             <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
             <br>
 
-            <form class="form" method="POST">
+            <form class="form" method="POST" action="">
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                <div class="form__field">
+                    <label for="formInput#text"> {{field.label}}</label>
+                    {{field}}
+                </div>
                 
+                {% endfor %}
 
                
                
