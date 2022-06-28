@@ -39,6 +39,7 @@ def logoutUser(request):
     messages.info(request, 'User was logged out!')
     return redirect('login')
 
+
 def registerUser(request):
     page = 'register'
     form = CustomUserCreationForm()
@@ -48,7 +49,7 @@ def registerUser(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
-            user.save() 
+            user.save()
 
             messages.success(request, 'User account was created!')
 
@@ -56,16 +57,23 @@ def registerUser(request):
             return redirect('profiles')
 
         else:
-            messages.success(request, 'An error has occurred during registration')
+            messages.success(
+                request, 'An error has occurred during registration')
 
-
-    context = {'page':page, 'form':form}
+    context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
 
+
 def profiles(request):
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles}
+    search_query = ''
+
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+
+    profiles = Profile.objects.filter(name__icontains=search_query)
+    context = {'profiles': profiles, 'search_query': search_query}
     return render(request, 'users/profiles.html', context)
+
 
 def userProfile(request, pk):
     profile = Profile.objects.get(id=pk)
@@ -73,7 +81,8 @@ def userProfile(request, pk):
     topSkills = profile.skill_set.exclude(description__exact="")
     otherSkills = profile.skill_set.filter(description="")
 
-    context = {'profile': profile, 'topSkills': topSkills, 'otherSkills': otherSkills}
+    context = {'profile': profile, 'topSkills': topSkills,
+               'otherSkills': otherSkills}
     return render(request, 'users/user-profile.html', context)
 
 
@@ -86,6 +95,7 @@ def userAccount(request):
 
     context = {'profile': profile, 'skills': skills, 'projects': projects}
     return render(request, 'users/account.html', context)
+
 
 @login_required(login_url='login')
 def editAccount(request):
@@ -136,7 +146,6 @@ def updateSkill(request, pk):
 
     context = {'form': form}
     return render(request, 'users/skill_form.html', context)
-
 
 
 def deleteSkill(request, pk):
