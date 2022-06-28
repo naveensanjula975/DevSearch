@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.urls import conf
 from django.db.models import Q
+from jmespath import search
 from .models import Profile, Skill
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 
@@ -67,14 +68,15 @@ def registerUser(request):
 
 
 def profiles(request):
+    # search function
     search_query = ''
 
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
 
-    skills = Skill.objects.filter(name__iexact=search_query)
+    skills = Skill.objects.filter(name__icontains=search_query)
 
-    profiles = Profile.objects.filter(
+    profiles = Profile.objects.distinct().filter(
         Q(name__icontains=search_query) |
         Q(short_intro__icontains=search_query) |
         Q(skill__in=skills)
