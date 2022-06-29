@@ -27,10 +27,10 @@ MIDDLEWARE = [
 <li>User Login, Logout and Flash Messages
 <li>
 <li>
+<li>Build a review and voting system
+<li>User Registration and Authentication
+<li>Search & Pagination
 <li>
-<li>
-<li>Search
-<li>Pagination
 <li>
 <li>
 
