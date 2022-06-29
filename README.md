@@ -25,7 +25,7 @@ MIDDLEWARE = [
 <li>Hosting a website on a live server
 <li>Build a review and voting system
 <li>User Login, Logout and Flash Messages
-<li>
+<li>Designing databases with Django
 <li>
 <li>Build a review and voting system
 <li>User Registration and Authentication
