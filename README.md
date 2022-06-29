@@ -26,7 +26,11 @@ MIDDLEWARE = [
 <li>Build a review and voting system
 <li>User Login, Logout and Flash Messages
 <li>
-<li>pagination
+<li>
+<li>
+<li>
+<li>Search
+<li>Pagination
 <li>
 <li>
 
