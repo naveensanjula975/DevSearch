@@ -20,12 +20,12 @@ def paginationProjects(request, projects, results):
         page = paginator.num_pages
         projects = paginator.page(page)
 
-    leftIndex = (int(page) - 1)
+    leftIndex = (int(page) - 4)
 
     if leftIndex < 1:
         leftIndex = 1
 
-    rightIndex = (int(page) + 2)
+    rightIndex = (int(page) + 5)
 
     if rightIndex > paginator.num_pages:
         rightIndex = paginator.num_pages + 1
