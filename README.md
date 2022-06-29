@@ -1,17 +1,17 @@
 # DevSearch
+
 VirtualOfficeRoom
 
-
 Django [documentation](https://docs.djangoproject.com/en/4.0/)
-
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/)
 
 # Installation
 
-```pip install whitenoise```
+`pip install whitenoise`
 
 Edit your settings.py file and add WhiteNoise to the MIDDLEWARE list, above all other middleware apart from Django’s SecurityMiddleware:
+
 ```
 MIDDLEWARE = [
     # ...
@@ -20,7 +20,6 @@ MIDDLEWARE = [
     # ...
 ]
 ```
-
 
 <li>Build a Django website
 <li>Hosting a website on a live server
@@ -31,15 +30,10 @@ MIDDLEWARE = [
 <li>
 <li>
 
-
-
-
 ## Displaying messages¶
 
-
 get_messages [[request]](https://docs.djangoproject.com/en/4.0/_modules/django/contrib/messages/api/#get_messages)
-    
-    
+
 ```
 {% if messages %}
 <ul class="messages">
@@ -48,4 +42,19 @@ get_messages [[request]](https://docs.djangoproject.com/en/4.0/_modules/django/c
     {% endfor %}
 </ul>
 {% endif %}
+```
+
+## The Paginator class
+
+Under the hood, all methods of [pagination](https://docs.djangoproject.com/en/4.0/ref/paginator/#django.core.paginator.Paginator) use the Paginator class. It does all the heavy lifting of actually splitting a QuerySet into [Page](https://docs.djangoproject.com/en/4.0/ref/paginator/#django.core.paginator.Page) objects.
+
+```
+>>> from django.core.paginator import Paginator
+>>> objects = ['john', 'paul', 'george', 'ringo']
+>>> p = Paginator(objects, 2)
+
+>>> p.count
+4
+>>> p.num_pages
+2
 ```
