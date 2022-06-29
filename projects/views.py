@@ -9,7 +9,7 @@ from .utils import searchProjects, paginationProjects
 def projects(request):
 
     projects, search_query = searchProjects(request)
-    custom_range, projects = paginationProjects(request, projects, 6)
+    custom_range, projects = paginationProjects(request, projects, 2)
     
 
     context = {'projects': projects,

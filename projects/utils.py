@@ -8,7 +8,6 @@ def paginationProjects(request, projects, results):
 
     # The Paginator class
     page = request.GET.get('page')
-    results = 3
     paginator = Paginator(projects, results)
 
     try:
