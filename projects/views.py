@@ -33,7 +33,7 @@ def projects(request):
     rightIndex = (int(page) + 5)
 
     if rightIndex > paginator.num_pages:
-        rightIndex = paginator.num_pages
+        rightIndex = paginator.num_pages + 1
 
     custom_range = range(leftIndex, rightIndex)
 
