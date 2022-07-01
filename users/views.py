@@ -200,7 +200,7 @@ def createMessage(request, pk):
                 message.email = sender.email
             message.save()
 
-            message.success(request, 'Your message was successfully sent!')
+            messages.success(request, 'Your message was successfully sent!')
             return redirect('user-profile', pk=recipient.id)
 
     context = {'recipient': recipient, 'form': form}
