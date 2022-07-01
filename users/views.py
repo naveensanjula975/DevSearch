@@ -179,7 +179,7 @@ def viewMessage(request, pk):
     return render(request, 'users/message.html', context)
 
 
-def createMessage(request):
+def createMessage(request, pk):
     
     context = {}
     return render(request, 'users/message_form.html', context)
