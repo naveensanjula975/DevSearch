@@ -180,7 +180,7 @@ def viewMessage(request, pk):
 
 
 def createMessage(request, pk):
-    
-    context = {}
+    recipient = Profile.objects.get(id=pk)
+    context = {'recipient': recipient}
     return render(request, 'users/message_form.html', context)
 
