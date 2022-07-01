@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.urls import conf
 from django.db.models import Q
 from .models import Profile, Message
-from .forms import CustomUserCreationForm, ProfileForm, SkillForm
+from .forms import CustomUserCreationForm, ProfileForm, SkillForm, MessageForm
 from .utils import searchProfiles, paginationProfiles
 
 
@@ -181,6 +181,7 @@ def viewMessage(request, pk):
 
 def createMessage(request, pk):
     recipient = Profile.objects.get(id=pk)
-    context = {'recipient': recipient}
+    form = MessageForm()
+    context = {'recipient': recipient, 'form': form}
     return render(request, 'users/message_form.html', context)
 
