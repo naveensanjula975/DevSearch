@@ -106,3 +106,26 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls'))
 ]
 ```
+
+## Simple JWT
+
+> Installation
+
+```
+pip install djangorestframework-simplejwt
+```
+
+> Project Configuration
+
+In `settings.py`, add rest_framework_simplejwt.authentication.JWTAuthentication to the list of authentication classes:
+
+```
+REST_FRAMEWORK = {
+    ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        ...
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    ...
+}
+```
