@@ -65,7 +65,7 @@ Under the hood, all methods of [pagination](https://docs.djangoproject.com/en/4.
 
 ## Sending email
 
-Mail is sent using the SMTP host and port specified in the **EMAIL_HOST** and **EMAIL_PORT** settings. The **EMAIL_HOST_USER** and **EMAIL_HOST_PASSWORD** settings, if set, are used to authenticate to the SMTP server, and the **EMAIL_USE_TLS** and **EMAIL_USE_SSL** settings control whether a secure connection is used.
+Mail is sent using the SMTP host and port specified in the `EMAIL_HOST` and `EMAIL_PORT` settings. The `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` settings, if set, are used to authenticate to the SMTP server, and the `EMAIL_USE_TLS` and `EMAIL_USE_SSL` settings control whether a secure connection is used.
 
 ```
 from django.core.mail import send_mail
