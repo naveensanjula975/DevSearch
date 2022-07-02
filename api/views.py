@@ -1,7 +1,9 @@
-from django.db import router
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
+@api_view(['GET'])
 def getRoutes(request):
 
     routes = [
@@ -13,4 +15,4 @@ def getRoutes(request):
         {'POST': '/api/users/token/refresh'},
 
     ]
-    return JsonResponse(routes, safe=False)
+    return Response(routes)
