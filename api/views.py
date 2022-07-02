@@ -13,4 +13,4 @@ def getRoutes(request):
         {'POST': '/api/users/token/refresh'},
 
     ]
-    return JsonResponse(routes)
+    return JsonResponse(routes, safe=False)
