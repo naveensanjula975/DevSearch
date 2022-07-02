@@ -26,13 +26,12 @@ MIDDLEWARE = [
 <li>Build a review and voting system
 <li>User Login, Logout and Flash Messages
 <li>Designing databases with Django
-<li>
 <li>Build a review and voting system
 <li>User Registration and Authentication
 <li>Search & Pagination
 <li>Search + Pagination Hacky Fix
-<li>
-<li>
+<li>Building an API
+<li>Production Preparation & Deployment
 
 ## Displaying messages¶
 
