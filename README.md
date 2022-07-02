@@ -31,7 +31,7 @@ MIDDLEWARE = [
 <li>User Registration and Authentication
 <li>Search & Pagination
 <li>Search + Pagination Hacky Fix
-<li>
+<li>Building an API
 <li>
 
 ## Displaying messages¶
