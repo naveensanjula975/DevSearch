@@ -78,3 +78,31 @@ send_mail(
     fail_silently=False,
 )
 ```
+
+## Django REST framework
+
+Install using pip, including any optional packages you want...
+
+```
+pip install djangorestframework
+pip install markdown       # Markdown support for the browsable API.
+pip install django-filter  # Filtering support
+```
+
+Add 'rest_framework' to your INSTALLED_APPS setting.
+
+```
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]
+```
+
+`# urls.py`
+
+```
+urlpatterns = [
+    ...
+    path('api-auth/', include('rest_framework.urls'))
+]
+```
