@@ -26,7 +26,6 @@ MIDDLEWARE = [
 <li>Build a review and voting system
 <li>User Login, Logout and Flash Messages
 <li>Designing databases with Django
-<li>
 <li>Build a review and voting system
 <li>User Registration and Authentication
 <li>Search & Pagination
