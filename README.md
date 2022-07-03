@@ -26,13 +26,12 @@ MIDDLEWARE = [
 <li>Build a review and voting system
 <li>User Login, Logout and Flash Messages
 <li>Designing databases with Django
-<li>
 <li>Build a review and voting system
 <li>User Registration and Authentication
 <li>Search & Pagination
 <li>Search + Pagination Hacky Fix
-<li>
-<li>
+<li>Building an API
+<li>Production Preparation & Deployment
 
 ## Displaying messages¶
 
@@ -105,4 +104,27 @@ urlpatterns = [
     ...
     path('api-auth/', include('rest_framework.urls'))
 ]
+```
+
+## Simple JWT
+
+> Installation
+
+```
+pip install djangorestframework-simplejwt
+```
+
+> Project Configuration
+
+In `settings.py`, add rest_framework_simplejwt.authentication.JWTAuthentication to the list of authentication classes:
+
+```
+REST_FRAMEWORK = {
+    ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        ...
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    ...
+}
 ```
