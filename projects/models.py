@@ -1,9 +1,8 @@
-
-from email.policy import default
 from django.db import models
 import uuid
-from users.models import Profile
 
+from django.db.models.deletion import CASCADE
+from users.models import Profile
 # Create your models here.
 
 
@@ -51,7 +50,7 @@ class Project(models.Model):
         ratio = (upVotes / totalVotes) * 100
         self.vote_total = totalVotes
         self.vote_ratio = ratio
-        
+
         self.save()
 
 

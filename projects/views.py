@@ -5,14 +5,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Project, Tag
 from .forms import ProjectForm, ReviewForm
-from .utils import searchProjects, paginationProjects
+from .utils import searchProjects, paginateProjects
 
 
 def projects(request):
-
     projects, search_query = searchProjects(request)
-    custom_range, projects = paginationProjects(request, projects, 6)
-    
+    custom_range, projects = paginateProjects(request, projects, 6)
 
     context = {'projects': projects,
                'search_query': search_query, 'custom_range': custom_range}
@@ -30,7 +28,6 @@ def project(request, pk):
         review.owner = request.user.profile
         review.save()
 
-        #Update project vote count
         projectObj.getVoteCount
 
         messages.success(request, 'Your review was successfully submitted!')
@@ -68,9 +65,15 @@ def updateProject(request, pk):
     form = ProjectForm(instance=project)
 
     if request.method == 'POST':
+        newtags = request.POST.get('newtags').replace(',',  " ").split()
+
         form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
-            form.save()
+            project = form.save()
+            for tag in newtags:
+                tag, created = Tag.objects.get_or_create(name=tag)
+                project.tags.add(tag)
+
             return redirect('account')
 
     context = {'form': form, 'project': project}
