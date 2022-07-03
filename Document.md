@@ -1,5 +1,5 @@
 
-Terminal 
+Terminal Commands
 
 
 ```python manage.py shell```
