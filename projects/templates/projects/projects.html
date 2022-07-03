@@ -49,13 +49,6 @@
                     >By {{project.owner.name}}</a
                   >
                 </p>
-                <p>
-                  <a
-                    class="project__author"
-                    href="{% url 'user-profile' project.owner.id %}"
-                    >By {{project.owner.name}}</a
-                  >
-                </p>
                 <p class="project--rating">
                   <span style="font-weight: bold">{{project.vote_ratio}}%</span>
                   Positive Feedback ({{project.vote_total}})
