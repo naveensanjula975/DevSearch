@@ -4,6 +4,8 @@ VirtualOfficeRoom
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/)
 
+[Live preview](https://virtual-office-room.herokuapp.com/)
+
 # Installation
 
 > update soon
