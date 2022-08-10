@@ -4,7 +4,7 @@
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/)
 
-[Live preview](https://virtual-office-room.herokuapp.com/)
+[Live preview](https://developer-family.herokuapp.com/)
 
 # Installation
 
