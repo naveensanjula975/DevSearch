@@ -1,6 +1,6 @@
 # DevSearch
 
-VirtualOfficeRoom
+
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/)
 
