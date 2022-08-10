@@ -32,6 +32,7 @@ MIDDLEWARE = [
 <li>Search + Pagination Hacky Fix
 <li>Building an API
 <li>Production Preparation & Deployment
+<li>Host
 
 ## Displaying messages¶
 
