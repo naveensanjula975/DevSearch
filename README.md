@@ -1,6 +1,6 @@
 # DevSearch
 
-VirtualOfficeRoom
+
 
 Django [documentation](https://docs.djangoproject.com/en/4.0/)
 
