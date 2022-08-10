@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'virtual-office-room.herokuapp.com',
+    'developer-family.herokuapp.com',
     '127.0.0.1'
 ]
 
