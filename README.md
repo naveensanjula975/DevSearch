@@ -1,133 +1,211 @@
-# DevSearch
+# DevSearch - Developer Networking Platform
 
+A Django-based platform for developers to showcase their projects, connect with other developers, and build their professional network.
 
+[![Django](https://img.shields.io/badge/Django-4.0.5-green.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Security](https://img.shields.io/badge/Security-A+-brightgreen.svg)](./SECURITY.md)
 
-[WhiteNoise](http://whitenoise.evans.io/en/stable/)
+[Live Demo](https://developer-family.herokuapp.com/)
 
-[Live preview](https://developer-family.herokuapp.com/)
+---
 
-# Installation
+## ✨ Features
 
-> update soon
+- 🔐 **User Authentication** - Registration, login, password reset
+- 👤 **User Profiles** - Customizable profiles with skills and social links
+- 🚀 **Project Showcase** - Upload and display your projects
+- ⭐ **Review & Voting System** - Rate and review projects
+- 💬 **Messaging** - Direct messaging between developers
+- 🔍 **Search & Filtering** - Find projects and developers
+- 📱 **Responsive Design** - Works on all devices
+- 🔌 **REST API** - JWT-authenticated API endpoints
 
-`pip install whitenoise`
+---
 
-Edit your settings.py file and add WhiteNoise to the MIDDLEWARE list, above all other middleware apart from Django’s SecurityMiddleware:
+## 🚀 Quick Start
 
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+- Virtual environment (recommended)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/naveensanjula975/DevSearch.git
+   cd DevSearch
+   ```
+
+2. **Create and activate virtual environment:**
+   ```bash
+   python -m venv venv
+   
+   # Windows
+   venv\Scripts\activate
+   
+   # Mac/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environment variables:**
+   ```bash
+   # Copy the example file
+   copy .env.example .env   # Windows
+   cp .env.example .env     # Mac/Linux
+   
+   # Edit .env and add your configuration
+   ```
+   
+   **Required:** Generate a SECRET_KEY:
+   ```bash
+   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   ```
+
+5. **Run database migrations:**
+   ```bash
+   python manage.py migrate
+   ```
+
+6. **Create a superuser (admin):**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+7. **Collect static files:**
+   ```bash
+   python manage.py collectstatic --noinput
+   ```
+
+8. **Start the development server:**
+   ```bash
+   python manage.py runserver
+   ```
+
+9. **Open your browser and visit:**
+   - Main site: http://127.0.0.1:8000/
+   - Admin panel: http://127.0.0.1:8000/admin/
+   - API: http://127.0.0.1:8000/api/
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Django 4.0.5** - Web framework
+- **Django REST Framework** - API development
+- **Simple JWT** - JWT authentication
+- **PostgreSQL / SQLite** - Database
+- **Python Decouple** - Environment variable management
+
+### Frontend
+- **HTML/CSS/JavaScript** - Traditional Django templates
+- **Custom CSS** - Responsive design
+
+### Deployment
+- **Gunicorn** - WSGI server
+- **WhiteNoise** - Static file serving
+- **Heroku** - Cloud platform (configured)
+
+---
+
+## 🔌 API Endpoints
+
+### Authentication
+- `POST /api/users/token/` - Get JWT token
+- `POST /api/users/token/refresh/` - Refresh token
+
+### Projects
+- `GET /api/projects/` - List all projects
+- `GET /api/projects/{id}/` - Project details
+- `POST /api/projects/{id}/vote/` - Vote on project (auth required)
+
+**Full API documentation:** See [SETUP.md](./SETUP.md#api-endpoints)
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run all tests (when implemented)
+python manage.py test
+
+# Run specific app tests
+python manage.py test projects
+python manage.py test users
 ```
-MIDDLEWARE = [
-    # ...
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    # ...
-]
-```
 
-<li>Build a Django website
-<li>Hosting a website on a live server
-<li>Build a review and voting system
-<li>User Login, Logout and Flash Messages
-<li>Designing databases with Django
-<li>Build a review and voting system
-<li>User Registration and Authentication
-<li>Search & Pagination
-<li>Search + Pagination Hacky Fix
-<li>Building an API
-<li>Production Preparation & Deployment
-<li>Host
+---
 
-## Displaying messages¶
+## 🚢 Deployment
 
-get_messages [[request]](https://docs.djangoproject.com/en/4.0/_modules/django/contrib/messages/api/#get_messages)
+### Heroku Deployment
 
-```
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-```
+1. **Install Heroku CLI and login:**
+   ```bash
+   heroku login
+   ```
 
-## The Paginator class
+2. **Create Heroku app:**
+   ```bash
+   heroku create your-app-name
+   ```
 
-Under the hood, all methods of [pagination](https://docs.djangoproject.com/en/4.0/ref/paginator/#django.core.paginator.Paginator) use the Paginator class. It does all the heavy lifting of actually splitting a QuerySet into [Page](https://docs.djangoproject.com/en/4.0/ref/paginator/#django.core.paginator.Page) objects.
+3. **Set environment variables:**
+   ```bash
+   heroku config:set SECRET_KEY="your-secret-key"
+   heroku config:set DEBUG="False"
+   heroku config:set ALLOWED_HOSTS="your-app.herokuapp.com"
+   ```
 
-```
->>> from django.core.paginator import Paginator
->>> objects = ['john', 'paul', 'george', 'ringo']
->>> p = Paginator(objects, 2)
+4. **Deploy:**
+   ```bash
+   git push heroku main
+   ```
 
->>> p.count
-4
->>> p.num_pages
-2
-```
+5. **Run migrations:**
+   ```bash
+   heroku run python manage.py migrate
+   ```
+---
 
-## Sending email
+## 🤝 Contributing
 
-Mail is sent using the SMTP host and port specified in the `EMAIL_HOST` and `EMAIL_PORT` settings. The `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` settings, if set, are used to authenticate to the SMTP server, and the `EMAIL_USE_TLS` and `EMAIL_USE_SSL` settings control whether a secure connection is used.
+Contributions are welcome! Please follow these steps:
 
-```
-from django.core.mail import send_mail
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-send_mail(
-    'Subject here',
-    'Here is the message.',
-    'from@example.com',
-    ['to@example.com'],
-    fail_silently=False,
-)
-```
+---
 
-## Django REST framework
+## 📝 License
 
-Install using `pip`, including any optional packages you want...
+This project is open source and available under the [MIT License](LICENSE).
 
-```
-pip install djangorestframework
-pip install markdown       # Markdown support for the browsable API.
-pip install django-filter  # Filtering support
-```
+---
 
-Add 'rest_framework' to your `INSTALLED_APPS` setting.
+## 👨‍💻 Author
 
-```
-INSTALLED_APPS = [
-    ...
-    'rest_framework',
-]
-```
+**Naveen Sanjula**
+- GitHub: [@naveensanjula975](https://github.com/naveensanjula975)
 
-`# urls.py`
+---
 
-```
-urlpatterns = [
-    ...
-    path('api-auth/', include('rest_framework.urls'))
-]
-```
+## 🙏 Acknowledgments
 
-## Simple JWT
+- Django Documentation
+- Django REST Framework
+- The open-source community
 
-> Installation
+---
 
-```
-pip install djangorestframework-simplejwt
-```
-
-> Project Configuration
-
-In `settings.py`, add rest_framework_simplejwt.authentication.JWTAuthentication to the list of authentication classes:
-
-```
-REST_FRAMEWORK = {
-    ...
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        ...
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-    ...
-}
-```
+**Made with ❤️ using Django**
