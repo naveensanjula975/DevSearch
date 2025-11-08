@@ -33,7 +33,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
 # Add Heroku domain if needed
 if not DEBUG:
-    ALLOWED_HOSTS.append('developer-family.herokuapp.com')
+    ALLOWED_HOSTS.append('developer-family-4951f2334a2f.herokuapp.com')
 
 
 # Application definition
